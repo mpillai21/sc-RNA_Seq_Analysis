@@ -43,7 +43,7 @@ data = lapply(data, FUN= function(x){
   # association between UMI and genes
   x@meta.data  %<>% mutate(log10genePerUMI = log10(nFeature_RNA)/log10(nCount_RNA))
   # mitopercent
-  x[['mitopercent']] = PercentageFeatureSet(object = x, pattern = "^mt-")
+  x[['mitopercent']] = PercentageFeatureSet(object = x, pattern = "^MT-")#change the pattern as per the gene name format for the organism being analyzed.
   # proportion of ribosome genes in each cell
   x[['ribopercent']] =PercentageFeatureSet(object = x, pattern = "^RP[SL][[:digit:]]")
   return(x)
